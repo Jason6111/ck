@@ -46,9 +46,9 @@ qlck="pt_key=$pt_key;pt_pin=$pt_pin;"
 
 echo 你的JD_COOKIE为 $qlck 
 date +%s
-rm -rf ck sc pt tk xz ev
 else echo $err_msg
 fi
 }
 cl && ck && sc
 [ -z $err_msg ] && pt
+rm -rf ck sc pt tk xz ev 
