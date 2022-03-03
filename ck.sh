@@ -1,4 +1,4 @@
-rm -rf ck sc pt
+rm -rf ck sc pt tk xz ev
 cl(){
 
 read -p "请输入手机号: " mobile
@@ -46,7 +46,7 @@ qlck="pt_key=$pt_key;pt_pin=$pt_pin;"
 
 echo 你的JD_COOKIE为 $qlck 
 date +%s
-rm -rf ck sc pt
+rm -rf ck sc pt tk xz ev
 else echo $err_msg
 fi
 }
