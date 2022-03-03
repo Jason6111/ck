@@ -129,7 +129,7 @@ else echo 已存在多个相同jdc，请联系你的代挂删除后重新添加
 fi
 elif [ ! -z "$jdc" ]
 then echo 你的JD_COOKIE为 $jdc
-else echo "jdc获取失败，若重新执行脚本还是一样获取失败，请到电报联系 @shoujiyanxisheatu_bot"
+else echo "jdc获取失败，若重新执行脚本还是一样获取失败"
 fi
 else echo $err_msg请检查手机号$mobile是否正确
 fi
