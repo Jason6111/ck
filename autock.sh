@@ -134,7 +134,7 @@ fi
 else echo $err_msg请检查手机号$mobile是否正确
 fi
 fi
-rm -rf ck sc pt tk xz ev
 }
 cl && ck && sc
 [ -z $err_msg ] && pt
+rm -rf ck sc pt tk xz ev 
