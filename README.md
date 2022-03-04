@@ -1,6 +1,7 @@
 # 食用说明  
 
-<details> <summary> ## 自动上传</summary>  
+<details> <summary> 自动上传 </summary>  
+
 ```
 sudo -i wget https://raw.githubusercontent.com/Jason6111/ck/main/autock.sh
 ```  
@@ -16,7 +17,8 @@ sudo -i sh autock.sh
 ```  
 </details>
 
-## 手动上传  
+<details> <summary> 手动上传 </summary>  
+
 ```
 sudo -i wget https://raw.githubusercontent.com/Jason6111/ck/main/ck.sh && sh ck.sh
 ```  
