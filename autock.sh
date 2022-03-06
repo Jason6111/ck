@@ -6,6 +6,28 @@ tk=$(cat tk | grep -o "token.*" | cut -d '"' -f3)
 qck="$tt $tk"
 message=$(cat tk | grep -o "message.*" | cut -d '"' -f3)
 [ -z $tk ] && echo $message请检查青龙常量$qlcl || echo 青龙token获取成功
+}
+ev(){
+t=$(expr $(date +%s%N) / 1000000)
+curl -s -k -i --raw -o ev -X GET -H "Host:$host" -H "User-Agent:Mozilla/5.0 (Linux; Android 10; V1838T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36" -H "Authorization:$qck" "http://$host/open/envs?searchValue=&t=$t"
+}
+xz(){
+t=$(expr $(date +%s%N) / 1000000)
+d="[{\"value\":\"$jdc\",\"name\":\"JD_COOKIE\"}]"
+l=$(echo $d | wc -c) && l=$((l-1))
+curl -s -k -i --raw -o xz -X POST -H "Host:$host" -H "Content-Length:$l" -H "Authorization:$qck" -H "User-Agent:Mozilla/5.0 (Linux; Android 10; V1838T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36" -H "Content-Type:application/json;charset=UTF-8" -d "$d" "http://$host/open/envs?t=$t"
+ev
+[ $(cat xz | grep -c '"_id"') -eq 1 -a $(cat ev | grep -o "$pt_key" | wc -l) -eq 1 ] && echo 已成功新增到青龙 || xz
+}
+xg(){
+_id=$(cat ev | grep -o "$pt_pin.*" | cut -d '"' -f5)
+r=$(cat ev | grep -o "$pt_pin.*" | cut -d '"' -f21)
+if [ ! -z $r ]
+then if [ $r = "remarks" ]
+then remarks=$(cat ev | grep -o "$pt_pin.*" | cut -d '"' -f23)
+ab="\"remarks\":\"$remarks\","
+fi
+fi
 t=$(expr $(date +%s%N) / 1000000)
 d="{\"name\":\"JD_COOKIE\",\"value\":\"$jdc\",$ab\"_id\":\"$_id\"}"
 l=$(echo $d | wc -c) && l=$((l-1))
